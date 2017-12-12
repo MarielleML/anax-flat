@@ -1,0 +1,13 @@
+{
+    "name": "development-tools",
+    "version": "1.0.0",
+    "private": true,
+    "devDependencies": {
+        "csslint": "^1.0.5",
+        "desinax-responsive-menu": "^1.1.2",
+        "less": "^2.7.3",
+        "less-plugin-clean-css": "^1.5.1",
+        "normalize.css": "^7.0.0",
+        "stylelint": "^8.2.0"
+    }
+}

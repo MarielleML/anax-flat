@@ -1,0 +1,35 @@
+@import "typography-font-families.less";
+@import "typography-sizes.less";
+@import "typography-mixins.less";
+@import "typography-defaults.less";
+
+body {
+    .font();
+    .typographyHeadings();
+    .typographyTextElements();
+    .typographyCodeElements();
+    .typographyListElements();
+    .typographyTableElements();
+    .typographyOtherElements();
+
+
+}
+
+.hgrid, .route-typography {
+    background-image: url(../img/horisontal-grid-24.png);
+}
+
+nav div ul a {
+    @height: 48px;
+    .calcMargin(@height);
+    padding-top: (@margin / 2) - 1px !important;
+    padding-bottom: (@margin / 2) - 1px !important;
+}
+
+.flash-wrap {
+    @height: 400px;
+    height: 400px;
+    .calcMargin(@height);
+    margin-top: (@margin / 2) - 1px !important;
+    margin-bottom: (@margin / 2) - 1px !important;
+}

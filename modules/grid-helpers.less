@@ -1,0 +1,20 @@
+/**
+*Gridbased layout
+* mixin inne här
+*import grid-float
+*/
+.grid(@maxWidth: 1100px) {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: @maxWidth;
+}
+
+.showGrid(@maxWidth: 1100px, @gridImage) {
+    //Wrap in måsvingar - variable interpolation
+    background: url("@{gridImage}") repeat-y fixed center center;
+    background-size: 100% auto;
+
+    @media (min-width: @maxWidth) {
+        background-size: @maxWidth auto;
+    }
+}

@@ -1,10 +1,7 @@
 #!/usr/bin/make -f
 #
-<<<<<<< HEAD
 #
 
-=======
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e
 # Detect OS
 OS = $(shell uname -s)
 
@@ -36,7 +33,6 @@ CHECK_VERSION = printf "%-15s %-10s %s\n" "`basename $(1)`" "`$(1) --version $(2
 
 
 
-<<<<<<< HEAD
 # Add local bin path for test tools
 BIN 		= bin
 VENDORBIN 	= vendor/bin
@@ -59,19 +55,12 @@ LESSC     := $(NPMBIN)/lessc
 .PHONY: help
 help:
 	@$(call	HELPTEXT,$@)
-=======
-# target: help                - Displays help.
-.PHONY:	help
-help:
-	@$(call HELPTEXT,$@)
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e
 	@$(ECHO) "Usage:"
 	@$(ECHO) " make [target] ..."
 	@$(ECHO) "target:"
 	@egrep "^# target:" Makefile | sed 's/# target: / /g'
 
 
-<<<<<<< HEAD
 
 # target: prepare-build      - Clear and recreate the build directory.
 .PHONY: prepare-build
@@ -192,87 +181,3 @@ npm-version:
 	@$(call CHECK_VERSION, $(CSSLINT))
 	@$(call CHECK_VERSION, $(STYLELINT))
 	@$(call CHECK_VERSION, $(LESSC), | cut -d ' ' -f 2)
-=======
-# target: upgrade-normalize       - Upgrade LESS module - Normalize.
-.PHONY: upgrade-normalize
-upgrade-normalize:
-	@$(call HELPTEXT,$@)
-	npm update normalize.css
-	cp theme/node_modules/normalize.css/normalize.css theme/modules/normalize.less
-
-# target: upgrade-responsive-menu - Upgrade LESS module - Responsive menu
-.PHONY: upgrade-responsive-menu
-upgrade-responsive-menu:
-	@$(call HELPTEXT,$@)
-	npm update desinax-responsive-menu
-	cp theme/node_modules/desinax-responsive-menu/src/less/responsive-menu.less modules/
-	cp theme/node_modules/desinax-responsive-menu/src/js/responsive-menu.js js/
-
-
-	# target: upgrade                 - Upgrade external LESS modules.
-.PHONY: upgrade
-upgrade: upgrade-normalize upgrade-responsive-menu
-	@$(call HELPTEXT,$@)
-
-# target: clean-cache         - Clear all cache files and set mode on cache dirs.
-.PHONY: clean-cache
-clean-cache:
-	@$(call HELPTEXT,$@)
-	rm -rf cache/*/*
-	install -d -m 777 cache/cimage cache/anax
-
-
-
-# target: site-build          - Copy default structure from Anax Flat.
-.PHONY: site-build
-site-build:
-	@$(call HELPTEXT,$@)
-
-	@$(ECHO) "$(ACTION)Copy from anax-flat$(NO_COLOR)"
-	rsync -a vendor/mos/anax-flat/htdocs/ htdocs/
-	rsync -a vendor/mos/anax-flat/config/ config/
-	rsync -a vendor/mos/anax-flat/content/ content/
-	rsync -a vendor/mos/anax-flat/view/ view/
-
-	@$(ECHO) "$(ACTION)Copy from CImage$(NO_COLOR)"
-	install -d htdocs/cimage
-	rsync -a vendor/mos/cimage/webroot/imgd.php htdocs/cimage/imgd.php
-	rsync -a vendor/mos/cimage/icc/ htdocs/cimage/icc/
-
-	@$(ECHO) "$(ACTION)Create the directory for the cache items$(NO_COLOR)"
-	install -d -m 777 cache/cimage cache/anax
-
-
-
-# target: site-update         - Make composer update and copy latest files.
-.PHONY: site-update
-site-update:
-	@$(call HELPTEXT,$@)
-	composer update
-
-	@$(ECHO) "$(ACTION)Copy Makefile$(NO_COLOR)"
-	rsync -av vendor/mos/anax-flat/Makefile .
-
-	@$(ECHO) "$(ACTION)Copy from CImage$(NO_COLOR)"
-	rsync -a vendor/mos/cimage/webroot/imgd.php htdocs/cimage/imgd.php
-	rsync -a vendor/mos/cimage/icc/ htdocs/cimage/icc/
-
-	@$(ECHO) "$(ACTION)Create/Update the directory for the cache items$(NO_COLOR)"
-	install -d -m 777 cache/cimage cache/anax
-
-
-
-# target: theme               - Do make in theme/ subfolder.
-.PHONY: theme
-theme:
-	@$(call HELPTEXT,$@)
-	[ ! -d theme ] || $(MAKE) -C theme less-install
-
-
-
-# # target: test                - Run tests.
-# .PHONY: test
-# test:
-# 	@$(call HELPTEXT,$@)
-# 	[ ! -d theme ] || $(MAKE) -C theme test
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e

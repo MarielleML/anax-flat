@@ -1,0 +1,126 @@
+/**
+* Anax Flat theme.
+*/
+@import url(modules.less);
+
+
+.wrap-all {
+    min-width: 70%;
+}
+
+/** --------------------------------------------------------------
+ *  Logo images
+ */
+.logo-1 {
+    display: none;
+}
+
+
+
+.site-logo-text-icon {
+    img {
+        vertical-align: bottom;
+    }
+}
+
+.vgrid, .route-grid {
+    background: url(../img/grid950x24x30x10-nomargin.png)
+}
+
+//Footer
+.inner-wrap-footer {
+    background-color: #eee;
+    width: 100%;
+}
+
+
+//First coloumn footer
+.footer-column {
+    padding-left: 3px;
+}
+// Size of max navbar button
+// .rm-max .rm-small .rm-button {
+//     font-size: 2em;
+// }
+
+//Bottom footer
+.site-footer {
+    padding-bottom: 20px;
+}
+
+.byline-border {
+    border-top: solid;
+}
+
+//Font size for hamburger menu
+@maxButtonFontSize: 2em;
+
+// Size each item in the header
+// .rm-desktop li {
+//     background-color: #779dca;
+// }
+
+// Size each item in the header
+.site-logo-text,
+.navbar2,
+.profile {
+    float: left;
+    width: 40%;
+}
+
+.site-header {
+    height: 80px;
+}
+
+// Site title
+.site-logo-text {
+    font-size: 2em;
+    a {
+        text-decoration: none;
+    }
+}
+
+//Bakground color with variable
+// @navbarItemBgColor: #eee;
+
+
+ img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .site-logo-text {
+        width: 40%;
+    }
+
+    .navbar2 {
+        width: 50%;
+    }
+
+    .profile {
+        width: 10%;
+    }
+}
+
+//max-width at 500px, responsive
+@media screen and (max-width: 500px) {
+    .site-logo-text {
+        width: 90%;
+    }
+    .navbar2 {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .footer-column {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .sidebar {
+        display: none;
+    }
+}
