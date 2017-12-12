@@ -3,7 +3,7 @@ titleBreadcrumb: Home
 ...
 A website using Anax Flat
 ===============================
-<img src="img/profile.jpg" alt="profile" height="200" >
+<img src="img/profile.jpg" alt="profile" height="200" opacity=0.95>
 
 
 Hi there.
