@@ -1,10 +1,6 @@
 #!/usr/bin/make -f
 #
-<<<<<<< HEAD
 #
-
-=======
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e
 # Detect OS
 OS = $(shell uname -s)
 
@@ -35,8 +31,6 @@ HELPTEXT = $(ECHO) "$(ACTION)--->" `egrep "^\# target: $(1) " "$(THIS_MAKEFILE)"
 CHECK_VERSION = printf "%-15s %-10s %s\n" "`basename $(1)`" "`$(1) --version $(2)`" "`which $(1)`"
 
 
-
-<<<<<<< HEAD
 # Add local bin path for test tools
 BIN 		= bin
 VENDORBIN 	= vendor/bin
@@ -59,19 +53,15 @@ LESSC     := $(NPMBIN)/lessc
 .PHONY: help
 help:
 	@$(call	HELPTEXT,$@)
-=======
 # target: help                - Displays help.
 .PHONY:	help
 help:
 	@$(call HELPTEXT,$@)
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e
 	@$(ECHO) "Usage:"
 	@$(ECHO) " make [target] ..."
 	@$(ECHO) "target:"
 	@egrep "^# target:" Makefile | sed 's/# target: / /g'
 
-
-<<<<<<< HEAD
 
 # target: prepare-build      - Clear and recreate the build directory.
 .PHONY: prepare-build
@@ -192,7 +182,6 @@ npm-version:
 	@$(call CHECK_VERSION, $(CSSLINT))
 	@$(call CHECK_VERSION, $(STYLELINT))
 	@$(call CHECK_VERSION, $(LESSC), | cut -d ' ' -f 2)
-=======
 # target: upgrade-normalize       - Upgrade LESS module - Normalize.
 .PHONY: upgrade-normalize
 upgrade-normalize:
@@ -275,4 +264,3 @@ theme:
 # test:
 # 	@$(call HELPTEXT,$@)
 # 	[ ! -d theme ] || $(MAKE) -C theme test
->>>>>>> 9444c6ae40698950f3b934117e2742c1d430079e
